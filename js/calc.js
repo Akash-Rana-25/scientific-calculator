@@ -1,3 +1,4 @@
+let isComputed = false;
 const result = document.getElementById('result');
 let memory = [];
 if (memory.length == 0) {
@@ -6,8 +7,18 @@ if (memory.length == 0) {
 
 }
 function display(val) {
-    result.value += val;
+console.log(val,isComputed);
 
+    if (isComputed === false) {
+        result.value += val;
+    }
+    else if((val==='+'|| val==='-' || val==='*'|| val==='/') && isComputed === true){
+        result.value += val;
+        isComputed=false;
+    } 
+    else {
+        result.value = val;
+    }
 
     if (document.getElementById('result').value != '') {
         document.getElementById("c").style.display = "none";
@@ -93,8 +104,6 @@ function memoryFunction(opration) {
 }
 
 
-
-
 let on = 1;
 function showrows() {
     on++;
@@ -178,6 +187,7 @@ function solve() {
 
     let x = document.getElementById('result').value
     let y = eval(x);
+    isComputed = true;
 
     document.getElementById('result').value = y
 
@@ -196,6 +206,9 @@ function mathfun(math_obj) {
     let ans;
 
     switch (math_obj) {
+        case 'dfg':
+            ans = z * 180 / Math.PI
+            break
         case 'log':
             ans = Math.log10(z);
             break;
