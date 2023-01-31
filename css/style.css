@@ -1,0 +1,31 @@
+/* .table td {
+    text-align: center;
+}
+
+.table td button{
+    border: none;
+} */
+.container {
+    border: solid black;
+    box-shadow: 1px 1px 5px #D1D3D5;
+}
+
+button {
+    width: 100%;
+    cursor: pointer;
+
+}
+
+.ans {
+    border: none;
+    float: right;
+    text-align: right;
+    font-size: x-large;
+    font-weight: 600;
+    width: 100%;
+}
+
+.horizontal.dropdown-menu.show {
+    display: flex;
+    flex-wrap: wrap;
+  }
