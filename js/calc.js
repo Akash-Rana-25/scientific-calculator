@@ -37,9 +37,14 @@ function display(val) {
     if (isComputed === false) {
         result.value += val;
     }
-    else if ((val === '+' || val === '-' || val === '*' || val === '/') && isComputed === true) {
+    else if ((val === '+' || val === '-' || val === '*' || val === '/' ) && isComputed === true) {
         result.value += val;
         isComputed = false;
+    }
+    else if((val ==='3.141592653589793')&& isComputed===false) {
+        console.log(val);
+        console.log(isComputed);
+        result.value = val;
     }
     else {
         result.value = val;
@@ -242,6 +247,7 @@ function mathfun(math_obj) {
             break;
         case 'pi':
             ans = Math.PI;
+            console.log(ans);
             break;
         case 'e':
             ans = Math.E;
