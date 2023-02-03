@@ -1,4 +1,6 @@
 let isComputed = false;
+let isDecimalLegal = true;
+let Operator = true;
 const result = document.getElementById('result');
 let memory = [];
 if (memory.length == 0) {
