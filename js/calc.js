@@ -7,19 +7,42 @@ if (memory.length == 0) {
 
 }
 function display(val) {
-console.log(val,isComputed);
+    // console.log(val,isComputed);
+
+
+    if(val === ')' && !(result.value.toString().includes('('))){
+        return;
+    }
+
+    if ((val === '+' || val === '-' || val === '*' || val === '/') && Operator === false) {
+        return;
+    } // check first value is oprator
+    if ((val === '+' || val === '-' || val === '*' || val === '/') && Operator === true) {
+        Operator= false
+        isDecimalLegal = true;
+
+    } else {
+        Operator= true;
+    }
+    if(val === '.'){
+        if(isDecimalLegal === false){
+            return;
+        }else{
+            isDecimalLegal = false;
+        }
+    }
 
     if (isComputed === false) {
         result.value += val;
     }
-    else if((val==='+'|| val==='-' || val==='*'|| val==='/') && isComputed === true){
+    else if ((val === '+' || val === '-' || val === '*' || val === '/') && isComputed === true) {
         result.value += val;
-        isComputed=false;
-    } 
+        isComputed = false;
+    }
     else {
         result.value = val;
     }
-
+  
     if (document.getElementById('result').value != '') {
         document.getElementById("c").style.display = "none";
         document.getElementById("ce").style.display = "block";
@@ -27,9 +50,6 @@ console.log(val,isComputed);
         document.getElementById("ce").style.display = "none";
         document.getElementById("c").style.display = "block";
     }
-
-    console.log(val);
-    return val
 
 }
 
