@@ -9,7 +9,7 @@ if (memory.length == 0) {
 
 }
 function display(val) {
-    // console.log(val,isComputed);
+    console.log(val,'first isComputed'+isComputed);
 
 
     if(val === ')' && !(result.value.toString().includes('('))){
@@ -22,9 +22,11 @@ function display(val) {
     if ((val === '+' || val === '-' || val === '*' || val === '/') && Operator === true) {
         Operator= false
         isDecimalLegal = true;
+        // console.log('first '+Operator);
 
     } else {
         Operator= true;
+        // console.log('second '+Operator);
     }
     if(val === '.'){
         if(isDecimalLegal === false){
@@ -35,14 +37,19 @@ function display(val) {
     }
 
     if (isComputed === false) {
+        console.log(val,'Second isComputed'+isComputed);
+
         result.value += val;
     }
     else if ((val === '+' || val === '-' || val === '*' || val === '/' ) && isComputed === true) {
         result.value += val;
         isComputed = false;
+        // console.log('therd '+Operator);
     }
     else {
         result.value = val;
+        isComputed = false;
+        // console.log('forth '+Operator);
     }
   
     if (document.getElementById('result').value != '') {
