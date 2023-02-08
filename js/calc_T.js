@@ -1,8 +1,9 @@
-var isComputed = false;
-var isDecimalLegal = true;
-var Operator = true;
-var result = document.getElementById('result');
-var memory = [];
+"use strict";
+let isComputed = false;
+let isDecimalLegal = true;
+let Operator = true;
+const result = document.getElementById('result');
+let memory = [];
 if (memory.length == 0) {
     document.getElementById("mr").disabled = true;
     document.getElementById("mc").disabled = true;
@@ -61,8 +62,8 @@ function fe_btn() {
 function memoryFunction(opration) {
     document.getElementById("mr").disabled = false;
     document.getElementById("mc").disabled = false;
-    var num = result.value;
-    var ans1 = 0;
+    let num = result.value;
+    let ans1 = 0;
     switch (opration) {
         case 'ms':
             memory.push(num);
@@ -83,7 +84,7 @@ function memoryFunction(opration) {
             clearScreen();
             // console.log(memory);
             // } else {
-            var a = void 0;
+            let a;
             ans1 = localStorage.getItem("memory");
             a = Number(ans1) + Number(num);
             localStorage.setItem("memory", a);
@@ -94,7 +95,7 @@ function memoryFunction(opration) {
         case 'm_minus':
             memory.push(num);
             clearScreen();
-            var a1 = void 0;
+            let a1;
             ans1 = localStorage.getItem("memory");
             a1 = Number(ans1) - Number(num);
             localStorage.setItem("memory", a1);
@@ -108,7 +109,7 @@ function memoryFunction(opration) {
     document.getElementById('result').value = ans1;
     return ans1;
 }
-var on = 1;
+let on = 1;
 function showrows() {
     on++;
     if (on % 2 == 0) {
@@ -176,8 +177,8 @@ function clearScreen() {
     }
 }
 function solve() {
-    var x = document.getElementById('result').value;
-    var y = eval(x);
+    let x = document.getElementById('result').value;
+    let y = eval(x);
     isComputed = true;
     document.getElementById('result').value = y;
     return y;
@@ -186,8 +187,8 @@ function backspace() {
     document.getElementById('result').value = result.value.slice(0, -1);
 }
 function mathfun(math_obj) {
-    var z = result.value;
-    var ans;
+    let z = result.value;
+    let ans;
     switch (math_obj) {
         case 'dfg':
             ans = z * 180 / Math.PI;
@@ -226,13 +227,13 @@ function mathfun(math_obj) {
             ans = Math.pow(2, z);
             break;
         case 'ecube':
-            var e = void 0;
+            let e;
             e = Math.E;
             ans = Math.pow(e, z);
         case 'fact':
-            var factorial = function (number) {
-                var temp = 1;
-                for (var i = 2; i <= number; i++) {
+            let factorial = (number) => {
+                let temp = 1;
+                for (let i = 2; i <= number; i++) {
                     temp = temp * i;
                 }
                 return temp;
